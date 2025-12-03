@@ -1,6 +1,6 @@
-    let validacaoNome;
-    let validacaoMatricula;
-    let validacaoDisciplina;
+let validacaoNome;
+let validacaoMatricula;
+let validacaoDisciplina;
 
 function confirmacaoInformacoesAluno(){
     validacaoNome = document.getElementById('nome-aluno').value;
@@ -17,30 +17,50 @@ function confirmacaoInformacoesAluno(){
 }
 
 function resultado(){
-    const quantidadeNotas = 4;
-    let nota_1 = document.getElementById('nota-1').valueAsNumber;
-    let nota_2 = document.getElementById('nota-2').valueAsNumber;
-    let nota_3 = document.getElementById('nota-3').valueAsNumber;
-    let nota_4 = document.getElementById('nota-4').valueAsNumber;
     
+    receber_notas();
+
     let validacaoNotas = (nota_1 >=0 && nota_1 <= 10) && (nota_2 >=0 && nota_2 <= 10) && (nota_3 >=0 && nota_3 <= 10) && (nota_4 >=0 && nota_4 <= 10);
     
     if(!validacaoNotas){
       alert("Você pode digitar uma nota de 0.0 a 10.0. Veja se existe algum campo vazio.");
     }else{
-      let somaNotas = nota_1 + nota_2 + nota_3 + nota_4;
-      let mediaNotas = somaNotas / quantidadeNotas;
+      let mediaAluno = processar_media();
       
-      document.getElementById('principal-sub-area-1-3').style.display = 'block';
-      
-      let statusAprovado = mediaNotas >= 7.0 ? "Aprovado" : "Reprovado";
-      
-      
-      let comunicadoStatusAprovado = "O aluno " + validacaoNome + ", matrícula " + validacaoMatricula + ", inscrito na disciplina " + validacaoDisciplina + ", obteve média " + mediaNotas.toFixed(1) + " e está " + statusAprovado + ".";
-      
-      document.getElementById('comprovante-resultado').innerHTML = comunicadoStatusAprovado;
-      
-      document.getElementById('comprovante-resultado-data').innerHTML = Date();
+      mensagem_aprovacao(mediaAluno);
     }
     
 }
+
+const quantidadeNotas = 4;
+
+let nota_1;
+let nota_2;
+let nota_3;
+let nota_4;
+
+function receber_notas() {
+    nota_1 = document.getElementById('nota-1').valueAsNumber;
+    nota_2 = document.getElementById('nota-2').valueAsNumber;
+    nota_3 = document.getElementById('nota-3').valueAsNumber;
+    nota_4 = document.getElementById('nota-4').valueAsNumber;
+}
+
+function processar_media() {
+    return (nota_1 + nota_2 + nota_3 + nota_4) / quantidadeNotas;
+}
+
+function mensagem_aprovacao(mediaAluno) {
+    document.getElementById('principal-sub-area-1-3').style.display = 'block';
+    
+    let statusAprovado = mediaAluno >= 7.0 ? "aprovado" : "reprovado";
+    
+    let comunicadoStatusAprovado = `O aluno ${validacaoNome}, matrícula ${validacaoMatricula}, inscrito na disciplina ${validacaoDisciplina}, obteve média ${mediaAluno} e está ${statusAprovado}.`
+    
+    mensagem_para_usuario = document.getElementById('comprovante-resultado');
+    mensagem_para_usuario.innerHTML = comunicadoStatusAprovado;
+    
+    document.getElementById('comprovante-resultado-data').innerHTML = Date();
+}
+
+
