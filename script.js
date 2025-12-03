@@ -67,4 +67,23 @@ function exibir_mensagem_na_tela(elemento, mensagem) {
   mensagem_para_usuario.innerHTML = mensagem;
 } 
 
+function reiniciar_operacao() {
+  document.querySelector('#nome-aluno').value = "";
+  document.querySelector('#matricula-aluno').value = "";
+  document.querySelector('#disciplina-aluno').value = "";
+
+  document.querySelector('#nota-1').value = "";
+  document.querySelector('#nota-2').value = "";
+  document.querySelector('#nota-3').value = "";
+  document.querySelector('#nota-4').value = "";
+
+  document.querySelector('#comprovante-resultado').innerHTML = "";
+  document.querySelector('#comprovante-resultado-data').innerHTML = "";
+
+  document.getElementById('principal-sub-area-1-2').style.display = 'none';
+  document.getElementById('principal-sub-area-1-3').style.display = 'none';
+
+
+}
+
 
