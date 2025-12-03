@@ -57,10 +57,14 @@ function mensagem_aprovacao(mediaAluno) {
     
     let comunicadoStatusAprovado = `O aluno ${validacaoNome}, matrícula ${validacaoMatricula}, inscrito na disciplina ${validacaoDisciplina}, obteve média ${mediaAluno} e está ${statusAprovado}.`
     
-    mensagem_para_usuario = document.getElementById('comprovante-resultado');
-    mensagem_para_usuario.innerHTML = comunicadoStatusAprovado;
+    exibir_mensagem_na_tela(".comprovante-resultado",comunicadoStatusAprovado);
     
     document.getElementById('comprovante-resultado-data').innerHTML = Date();
 }
+
+function exibir_mensagem_na_tela(elemento, mensagem) {
+  let mensagem_para_usuario = document.getElementById(elemento);
+  mensagem_para_usuario.innerHTML = mensagem;
+} 
 
 
