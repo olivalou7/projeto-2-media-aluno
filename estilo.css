@@ -60,6 +60,7 @@ body {
         'principal-sub-area-1-2 principal-sub-area-1-3'
         'principal-sub-area-1-2 principal-sub-area-1-3'
     ;
+    border: 2px solid black;
 }
 
 #principal-sub-area-1-1{
@@ -157,5 +158,6 @@ body {
 
 #principal-area-2{
     grid-area: principal-area-2;
+    border: 2px solid black;
 }
 
