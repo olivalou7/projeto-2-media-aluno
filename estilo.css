@@ -12,6 +12,8 @@ body {
 
 #topo{
     background-color: var(--cor-quartenaria);
+    display: flex;
+    justify-content: space-around;
 }
 
 #menu-navegacao>ul{
