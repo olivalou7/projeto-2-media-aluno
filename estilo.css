@@ -174,3 +174,9 @@ body {
     border: 2px solid black;
 }
 
+#rodape {
+    padding: 20px;
+    background-color: var(--cor-quartenaria);
+    color: var(--cor-secundaria);
+    text-align: center;
+}
